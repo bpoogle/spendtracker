@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type=number] {
+	-moz-appearance:textfield;
+}
+.amt {
+	width: 80px;
+	text-align: right;
+}
+td {
+	border: none;
+	padding: 4px;
+}
+table {
+	border: none;
+	border-collapse: collapse;	
+}
+body,
+input,
+td {
+	font-family: arial;
+	font-size: 14pt;
+}
+</style>
+</head>
+<body>
+<datalist id="vendors">
+	<option>Costco</option>
+	<option>CVS</option>
+	<option>El Pollo Loco</option>
+	<option>McDonald's</option>
+	<option>Trader Joe's</option>
+</datalist>
+<datalist id="categories">
+	<option>Automotive | Gasoline</option>
+	<option>Food | Dining Out | Breakfast</option>
+	<option>Food | Dining Out | Dinner</option>
+	<option>Food | Dining Out | Lunch</option>
+	<option>Food | Dining Out | Other</option>
+</datalist>
+<table>
+	<tr>
+		<td><input type="text" list="vendors" placeholder="Vendor"/></td>
+		<td><input type="number" step="0.01" placeholder="Amount" class="amt"/></td>
+	</tr>
+	<tr><td colspan="2"><hr></td></tr>
+	<tr>
+		<td>Uncategorized</td>
+		<td style="text-align: right">$0.00<td>
+	</tr>
+	<tr>
+		<td><input type="text" list="categories" placeholder="Categories"/></td>
+		<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
+	</tr>
+	<tr>
+		<td><input type="text" list="categories" placeholder="Categories"/></td>
+		<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
+	</tr>
+	<tr>
+		<td><input type="text" list="categories" placeholder="Categories"/></td>
+		<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
+	</tr>
+	<tr>
+		<td><input type="text" list="categories" placeholder="Categories"/></td>
+		<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
+	</tr>
+</table>
+</body>
+</html>
