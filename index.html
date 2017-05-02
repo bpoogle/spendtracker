@@ -1,76 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<style>
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-input[type=number] {
-	-moz-appearance:textfield;
-}
-.amt {
-	width: 80px;
-	text-align: right;
-}
-td {
-	border: none;
-	padding: 4px;
-}
-table {
-	border: none;
-	border-collapse: collapse;	
-}
-body,
-input,
-td {
-	font-family: arial;
-	font-size: 14pt;
-}
-</style>
-</head>
-<body>
-<datalist id="vendors">
-	<option>Costco</option>
-	<option>CVS</option>
-	<option>El Pollo Loco</option>
-	<option>McDonald's</option>
-	<option>Trader Joe's</option>
-</datalist>
-<datalist id="categories">
-	<option>Automotive | Gasoline</option>
-	<option>Food | Dining Out | Breakfast</option>
-	<option>Food | Dining Out | Dinner</option>
-	<option>Food | Dining Out | Lunch</option>
-	<option>Food | Dining Out | Other</option>
-</datalist>
-<table>
-	<tr>
-		<td><input type="text" list="vendors" placeholder="Vendor"/></td>
-		<td><input type="number" step="0.01" placeholder="Amount" class="amt"/></td>
-	</tr>
-	<tr><td colspan="2"><hr></td></tr>
-	<tr>
-		<td>Uncategorized</td>
-		<td style="text-align: right">$0.00<td>
-	</tr>
-	<tr>
-		<td><input type="text" list="categories" placeholder="Categories"/></td>
-		<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
-	</tr>
-	<tr>
-		<td><input type="text" list="categories" placeholder="Categories"/></td>
-		<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
-	</tr>
-	<tr>
-		<td><input type="text" list="categories" placeholder="Categories"/></td>
-		<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
-	</tr>
-	<tr>
-		<td><input type="text" list="categories" placeholder="Categories"/></td>
-		<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
-	</tr>
-</table>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
+        <title>Spend Tracker</title>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/pepper-grinder/jquery-ui.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css"/>
+		<style>
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			input[type=number] {
+				-moz-appearance:textfield;
+			}
+			.amt, #timepicker {
+				width: 80px;
+				text-align: right;
+			}
+			td {
+				border: none;
+				padding: 4px;
+			}
+			table {
+				border: none;
+				border-collapse: collapse;	
+			}
+			body,
+			input,
+			td {
+				font-family: arial;
+				font-size: 12pt;
+			}
+		</style>
+  	</head>
+	<body>
+        <script type="text/javascript" src="cordova.js"></script>
+		<datalist id="vendors">
+			<option>Costco</option>
+			<option>CVS</option>
+			<option>El Pollo Loco</option>
+			<option>McDonald's</option>
+			<option>Trader Joe's</option>
+		</datalist>
+		<datalist id="categories">
+			<option>Automotive | Gasoline</option>
+			<option>Food | Dining Out | Breakfast</option>
+			<option>Food | Dining Out | Dinner</option>
+			<option>Food | Dining Out | Lunch</option>
+			<option>Food | Dining Out | Other</option>
+		</datalist>
+		<table>
+			<tr>
+				<td><input type="text" id="datepicker" placeholder="Date"/></td>
+				<td><input type="text" id="timepicker" placeholder="Time"/></td>
+			</tr>
+			<tr>
+				<td><input type="text" list="vendors" placeholder="Vendor"/></td>
+				<td><input type="number" step="0.01" placeholder="Amount" class="amt"/></td>
+			</tr>
+			<tr><td colspan="2"><hr></td></tr>
+			<tr>
+				<td>Uncategorized</td>
+				<td style="text-align: right">$0.00<td>
+			</tr>
+			<tr>
+				<td><input type="text" list="categories" placeholder="Categories"/></td>
+				<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
+			</tr>
+			<tr>
+				<td><input type="text" list="categories" placeholder="Categories"/></td>
+				<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
+			</tr>
+			<tr>
+				<td><input type="text" list="categories" placeholder="Categories"/></td>
+				<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
+			</tr>
+			<tr>
+				<td><input type="text" list="categories" placeholder="Categories"/></td>
+				<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
+			</tr>
+		</table>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
+		<script>
+			$( function() {
+				$("#datepicker").datepicker();
+				$("#datepicker").datepicker("setDate", new Date());
+				$('#timepicker').timepicker();
+				$('#timepicker').timepicker({'forceRoundTime': true, 'step': 10, 'timeFormat': 'h:i a', 'useSelect': 'true'});
+				$('#timepicker').timepicker('setTime', new Date());
+			} );
+		</script>
+  	</body>
 </html>
