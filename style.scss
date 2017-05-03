@@ -1,0 +1,34 @@
+@import "compass/reset";
+@import "compass";
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type=number] {
+	-moz-appearance:textfield;
+}
+.amt {
+	width: 80px;
+	text-align: right;
+}
+td {
+	border: none;
+	padding: 4px;
+}
+table {
+	border: none;
+	border-collapse: collapse;	
+}
+html {
+	font-family: 'Ubuntu Mono';
+}
+/*
+body,
+input,
+td {
+	font-family: arial;
+	font-size: 14pt;
+}
+*/

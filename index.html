@@ -4,86 +4,81 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
         <title>Spend Tracker</title>
+        <head>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/pepper-grinder/jquery-ui.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css"/>
-		<style>
-			input::-webkit-outer-spin-button,
-			input::-webkit-inner-spin-button {
-				-webkit-appearance: none;
-				margin: 0;
-			}
-			input[type=number] {
-				-moz-appearance:textfield;
-			}
-			.amt, #timepicker {
-				width: 80px;
-				text-align: right;
-			}
-			td {
-				border: none;
-				padding: 4px;
-			}
-			table {
-				border: none;
-				border-collapse: collapse;	
-			}
-			body,
-			input,
-			td {
-				font-family: arial;
-				font-size: 12pt;
-			}
-		</style>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<link href="../../st-compass/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link href="../../st-compass/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+		<!--[if IE]>
+			<link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<![endif]-->
+		<link href="../../st-compass/stylesheets/style.css" rel="stylesheet" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
   	</head>
 	<body>
+		<ul class="nav nav-tabs">
+		  <li role="presentation" class="active"><a href="#">Home</a></li>
+		  <li role="presentation"><a href="#">History</a></li>
+		  <li role="presentation"><a href="settings.html">Settings</a></li>
+		</ul>
+		<div style="margin: 10px 0px 0px 10px">
+			<datalist id="vendors">
+				<option>Costco</option>
+				<option>CVS</option>
+				<option>El Pollo Loco</option>
+				<option>McDonald's</option>
+				<option>Trader Joe's</option>
+			</datalist>
+			<datalist id="categories">
+				<option>Automotive | Gasoline</option>
+				<option>Food | Dining Out | Breakfast</option>
+				<option>Food | Dining Out | Dinner</option>
+				<option>Food | Dining Out | Lunch</option>
+				<option>Food | Dining Out | Other</option>
+			</datalist>
+			<table>
+				<tr>
+					<td><input type="text" id="datepicker" placeholder="Date"/></td>
+					<td><input type="text" id="timepicker" placeholder="Time"/></td>
+				</tr>
+				<tr>
+					<td><input type="text" list="vendors" placeholder="Vendor"/></td>
+					<td><input type="number" step="0.01" placeholder="Amount" class="amt"/></td>
+				</tr>
+				<tr><td colspan="2"><hr></td></tr>
+				<tr>
+					<td>Uncategorized</td>
+					<td style="text-align: right">$0.00</td>
+				</tr>
+				<tr>
+					<td><input type="text" list="categories" placeholder="Categories"/></td>
+					<td><input type="number" step="0.01" placeholder="Amount" class="amt"/></td>
+				</tr>
+				<tr>
+					<td><input type="text" list="categories" placeholder="Categories"/></td>
+					<td><input type="number" step="0.01" placeholder="Amount" class="amt"/></td>
+				</tr>
+				<tr>
+					<td><input type="text" list="categories" placeholder="Categories"/></td>
+					<td><input type="number" step="0.01" placeholder="Amount" class="amt"/></td>
+				</tr>
+				<tr>
+					<td><input type="text" list="categories" placeholder="Categories"/></td>
+					<td><input type="number" step="0.01" placeholder="Amount" class="amt"/></td>
+				</tr>
+			</table>
+		</div>
         <script type="text/javascript" src="cordova.js"></script>
-		<datalist id="vendors">
-			<option>Costco</option>
-			<option>CVS</option>
-			<option>El Pollo Loco</option>
-			<option>McDonald's</option>
-			<option>Trader Joe's</option>
-		</datalist>
-		<datalist id="categories">
-			<option>Automotive | Gasoline</option>
-			<option>Food | Dining Out | Breakfast</option>
-			<option>Food | Dining Out | Dinner</option>
-			<option>Food | Dining Out | Lunch</option>
-			<option>Food | Dining Out | Other</option>
-		</datalist>
-		<table>
-			<tr>
-				<td><input type="text" id="datepicker" placeholder="Date"/></td>
-				<td><input type="text" id="timepicker" placeholder="Time"/></td>
-			</tr>
-			<tr>
-				<td><input type="text" list="vendors" placeholder="Vendor"/></td>
-				<td><input type="number" step="0.01" placeholder="Amount" class="amt"/></td>
-			</tr>
-			<tr><td colspan="2"><hr></td></tr>
-			<tr>
-				<td>Uncategorized</td>
-				<td style="text-align: right">$0.00<td>
-			</tr>
-			<tr>
-				<td><input type="text" list="categories" placeholder="Categories"/></td>
-				<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
-			</tr>
-			<tr>
-				<td><input type="text" list="categories" placeholder="Categories"/></td>
-				<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
-			</tr>
-			<tr>
-				<td><input type="text" list="categories" placeholder="Categories"/></td>
-				<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
-			</tr>
-			<tr>
-				<td><input type="text" list="categories" placeholder="Categories"/></td>
-				<td><input type="number" step="0.01" placeholder="Amount" class="amt"/><td>
-			</tr>
-		</table>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 		<script>
 			$( function() {
